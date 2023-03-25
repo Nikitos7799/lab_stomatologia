@@ -1,0 +1,18 @@
+﻿<Window x:Class="lab_stomatologia.editOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_stomatologia"
+        mc:Ignorable="d"
+        Title="Редактирование заказа" Height="300" Width="300">
+    <Grid>
+        <TextBlock x:Name="textClient" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Клиент"/>
+        <ComboBox x:Name="comboboxClient" HorizontalAlignment="Center" Height="23" Margin="0,45,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBlock x:Name="textService" HorizontalAlignment="Center" Margin="0,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Услуга"/>
+        <ComboBox x:Name="comboboxService" HorizontalAlignment="Center" Height="23" Margin="0,100,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBlock x:Name="textDate" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Дата оказания услуги"/>
+        <DatePicker x:Name="fieldDate" HorizontalAlignment="Center" Margin="0,155,0,0" VerticalAlignment="Top" />
+        <Button Content="Сохранить" Margin="0,235,0,0" HorizontalAlignment="Center" Width="190" Height="20" Click="editOrderBtn_Click"/>
+    </Grid>
+</Window>

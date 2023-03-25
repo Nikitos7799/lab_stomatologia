@@ -1,0 +1,115 @@
+﻿<Window x:Class="lab_stomatologia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_stomatologia"
+        mc:Ignorable="d"
+        Title="Стоматология" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="0,0,0,0" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Content="Добавить клиента" Margin="5" Click="addClientBtn_Click"/>
+            <Button Content="Добавить услугу" Margin="5" Click="addServiceBtn_Click"/>
+            <Button Content="Добавить заказ" Margin="5" Click="addOrderBtn_Click"/>
+        </StackPanel>
+        <TabControl Margin="0,30,0,0">
+            <TabItem x:Name="tabClients">
+                <TabItem.Header>
+                    <TextBlock>Клиенты</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DockPanel>
+                        <DataGrid x:Name="myClientsGrid" x:FieldModifier="public" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Код" Binding="{Binding id}" Width="40" />
+                                <DataGridTextColumn Header="Фамилия" Binding="{Binding family}" />
+                                <DataGridTextColumn Header="Имя" Binding="{Binding name}" />
+                                <DataGridTextColumn Header="Отчество" Binding="{Binding patronymic}" />
+                                <DataGridTextColumn Header="День рождения" Binding="{Binding birthday}" />
+                                <DataGridTextColumn Header="Телефон" Binding="{Binding phone}" />
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Действия" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button x:Name="editClient" Content="Изменить" Click="editClientBtn_Click" Margin="1" />
+                                                <Button x:Name="deleteClient" Content="Удалить" Click="deleteClientBtn_Click" Margin="1" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="tabServices">
+                <TabItem.Header>
+                    <TextBlock>Услуги</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DockPanel>
+                        <DataGrid x:Name="myServicesGrid" x:FieldModifier="public" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Код" Binding="{Binding id}" Width="40" />
+                                <DataGridTextColumn Header="Название" Binding="{Binding name}" />
+                                <DataGridTextColumn Header="Стоимость" Binding="{Binding price}" />
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Действия" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button x:Name="editService" Content="Изменить" Click="editServiceBtn_Click" Margin="1" />
+                                                <Button x:Name="deleteService" Content="Удалить" Click="deleteServiceBtn_Click" Margin="1" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="tabOrders">
+                <TabItem.Header>
+                    <TextBlock>Заказы</TextBlock>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <DockPanel>
+                        <DataGrid x:Name="myOrdersGrid" x:FieldModifier="public" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Код" Binding="{Binding id}" Width="40" />
+                                <DataGridTextColumn Header="Клиент" Binding="{Binding client}" />
+                                <DataGridTextColumn Header="Услуга" Binding="{Binding service}" />
+                                <DataGridTextColumn Header="Дата" Binding="{Binding datetime}" />
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Действия" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button x:Name="editOrder" Content="Изменить" Click="editOrderBtn_Click" Margin="1" />
+                                                <Button x:Name="deleteOrder" Content="Удалить" Click="deleteOrderBtn_Click" Margin="1" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </DockPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
